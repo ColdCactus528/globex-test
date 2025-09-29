@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Список пользователей — тест</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+
+  <svg xmlns="http://www.w3.org/2000/svg" style="position:absolute;width:0;height:0;overflow:hidden">
+    <symbol id="ic-phone" viewBox="0 0 24 24">
+      <g fill="currentColor" stroke="none">
+        <path fill-rule="evenodd" d="
+          M7,0 h10 a2,2 0 0 1 2,2 v20 a2,2 0 0 1 -2,2 h-10 a2,2 0 0 1 -2,-2 v-20 a2,2 0 0 1 2,-2 z
+          M7,1 h10 a1,1 0 0 1 1,1 v20 a1,1 0 0 1 -1,1 h-10 a1,1 0 0 1 -1,-1 v-20 a1,1 0 0 1 1,-1 z
+        "/>
+        <rect x="5" y="3" width="14" height="1" rx="0.5"/>
+        <rect x="5" y="18.2" width="14" height="1" rx="1"/>
+        <circle cx="12" cy="21.2" r="1"/>
+      </g>
+    </symbol>
+
+    <symbol id="ic-mail" viewBox="0 0 24 24">
+      <g fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="3" y="8.5" width="18" height="11" rx="1"></rect>
+        <polyline points="3 9.1 12 15 21 9.1"></polyline>
+      </g>
+    </symbol>
+  </svg>
+
+  <header class="topbar">
+    <div class="container">
+      <form id="searchWrap" class="search" role="search" aria-label="Поиск по ФИО" onsubmit="return false;">
+        <input id="search" type="text" autocomplete="off" placeholder="Поиск по ФИО" />
+        <button id="clearBtn" class="search__clear" type="button" aria-label="Очистить">×</button>
+        <button id="searchBtn" class="search__btn" type="button" aria-label="Найти" title="Найти">
+          <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="ic">
+            <g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="11" cy="11" r="6.5"></circle>
+              <line x1="16" y1="16" x2="21" y2="21"></line>
+            </g>
+          </svg>
+        </button>
+      </form>
+    </div>
+  </header>
+
+  <main class="container">
+    <section id="loading" class="state muted">Загрузка…</section>
+    <section id="error" class="state error hidden">Не удалось загрузить данные</section>
+    <section id="empty" class="state muted hidden">Ничего не найдено</section>
+
+    <div id="grid" class="grid" aria-live="polite"></div>
+  </main>
+
+  <div id="overlay" class="overlay hidden" aria-hidden="true">
+    <article class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button id="closeModal" class="close" type="button" aria-label="Закрыть">
+        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+          <g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <path d="M6 6 L18 18M18 6 L6 18" />
+          </g>
+        </svg>
+      </button>
+      <div id="modalBody"></div>
+    </article>
+  </div>
+
+  <script src="./app.js"></script>
+</body>
+</html>

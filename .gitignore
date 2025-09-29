@@ -1,0 +1,24 @@
+# Node / TypeScript
+node_modules/
+dist/
+build/
+coverage/
+*.log
+npm-debug.log*
+pnpm-debug.log*
+yarn-error.log*
+.vscode/
+
+# Env
+.env
+.env.local
+.env.*.local
+
+# SQL Server/SSMS
+*.rdl.data
+*.rdl
+*.rptproj.user
+
+# OS
+.DS_Store
+Thumbs.db
